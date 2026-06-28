@@ -1,0 +1,225 @@
+/* Página 3: Nossa História */
+.historia-container {
+  background: #f8f6f0;
+  position: relative;
+  width: 100%;
+  height: 3044px;
+  overflow-x: hidden;
+}
+
+/* Hero section */
+.historia-hero {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #004744;
+  height: 663px;
+  width: 100%;
+}
+
+.historia-hero-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.historia-hero-mask img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.57;
+}
+
+/* Banner */
+.historia-banner {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 213px;
+  text-align: center;
+}
+
+.historia-title {
+  font-family: 'Young Serif', serif;
+  font-size: 128px;
+  line-height: 117px;
+  color: #ffca59;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+
+.historia-title-line2 {
+  color: #ffebda;
+}
+
+.historia-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: #ffebda;
+  width: 497px;
+  margin: 0 auto;
+  line-height: normal;
+}
+
+/* Header */
+.historia-header {
+  position: absolute;
+  left: 50%;
+  margin-left: -564px;
+  top: 17px;
+}
+
+.historia-header .header-menu a {
+  color: #ffebda;
+}
+
+/* Seções de conteúdo */
+.content-section {
+  position: absolute;
+  left: 50%;
+  margin-left: -564px;
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}
+
+.content-section-1 {
+  top: 719px;
+}
+
+.content-section-2 {
+  top: 1277px;
+}
+
+.content-section-3 {
+  top: 2028px;
+}
+
+/* Seção de ícones - 3 cards */
+.icons-section {
+  position: absolute;
+  left: 50%;
+  margin-left: -564px;
+  top: 1652px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.icon-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  width: 360px;
+}
+
+.icon-card svg {
+  width: 118px;
+  height: 115px;
+}
+
+.icon-card h3 {
+  font-family: 'Young Serif', serif;
+  font-size: 32px;
+  line-height: normal;
+  color: #106061;
+  text-transform: capitalize;
+  text-align: center;
+  margin: 0;
+}
+
+.icon-card p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: normal;
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.content-image {
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.content-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.content-text h2 {
+  font-family: 'Young Serif', serif;
+  font-size: 48px;
+  line-height: 50px;
+  color: #106061;
+  text-transform: capitalize;
+}
+
+.content-text p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.7);
+  line-height: normal;
+}
+
+/* Seção de ícones */
+.icons-section {
+  position: absolute;
+  left: 50%;
+  margin-left: -564px;
+  top: 1652px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  width: 360px;
+}
+
+.icon-item svg {
+  width: 118px;
+  height: 115px;
+}
+
+.icon-item h3 {
+  font-family: 'Young Serif', serif;
+  font-size: 32px;
+  color: #106061;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.icon-item p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  text-transform: capitalize;
+  line-height: normal;
+}
+
+/* Footer */
+.historia-footer {
+  top: 2664px;
+}

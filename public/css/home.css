@@ -1,0 +1,234 @@
+/* Página 1: Home */
+.home-container {
+  background: white;
+  position: relative;
+  width: 100%;
+  height: 2179px;
+  overflow-x: hidden;
+}
+
+/* Seção 1: Cabeçalho e destaque */
+.hero-section {
+  position: absolute;
+  left: 0;
+  top: -16px;
+  background: #004744;
+  height: 850px;
+  width: 100%;
+}
+
+.hero-banner {
+  position: absolute;
+  left: 50%;
+  margin-left: -564px;
+  top: 220px;
+}
+
+.hero-title {
+  font-family: 'Young Serif', serif;
+  text-transform: capitalize;
+  line-height: 100px;
+  margin: 0;
+}
+
+.hero-title-line1,
+.hero-title-line2 {
+  font-size: 100px;
+  color: #ffebda;
+}
+
+.hero-title-line3 {
+  font-size: 100px;
+  color: #ffca59;
+}
+
+.hero-title-line4 {
+  font-size: 59px;
+  line-height: 67px;
+}
+
+.hero-subtitle {
+  position: absolute;
+  left: 50%;
+  margin-left: -564px;
+  top: 585px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: #ffebda;
+  width: 498px;
+  line-height: normal;
+}
+
+.btn-menu {
+  position: absolute;
+  left: 50%;
+  margin-left: -564px;
+  top: 666px;
+  background: #ffca59;
+  padding: 16px 24px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-menu span {
+  font-family: 'Young Serif', serif;
+  font-size: 24px;
+  letter-spacing: 1.44px;
+  text-transform: uppercase;
+  color: #116061;
+}
+
+.hero-image-main {
+  position: absolute;
+  left: 50%;
+  margin-left: -94px;
+  top: 132px;
+  width: 672px;
+  height: 556px;
+}
+
+.hero-image-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-bg-decoration {
+  position: absolute;
+  left: 156px;
+  top: -464px;
+  width: 1128px;
+  height: 1673px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-bg-decoration img {
+  transform: rotate(-19.06deg);
+  mix-blend-mode: plus-lighter;
+  width: 1343px;
+  height: 1306px;
+  object-fit: cover;
+}
+
+/* Faixa amarela animada */
+.yellow-banner {
+  position: absolute;
+  left: 0;
+  top: 818.79px;
+  background: #ffca59;
+  width: 100%;
+  padding: 17px 0;
+  overflow: hidden;
+  box-shadow: 0px 17px 35.15px rgba(10, 62, 63, 0.62);
+}
+
+.yellow-banner-content {
+  display: flex;
+  gap: 21px;
+  align-items: center;
+  width: fit-content;
+}
+
+.yellow-banner-text {
+  font-family: 'Young Serif', serif;
+  font-size: 40px;
+  color: #116061;
+  white-space: nowrap;
+}
+
+.yellow-banner-icon {
+  width: 37.21px;
+  height: 49.307px;
+}
+
+/* Seção 2: A Arte do Nosso Café */
+.coffee-section {
+  position: absolute;
+  left: 0;
+  top: 899px;
+  width: 100%;
+  height: 900px;
+}
+
+.coffee-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.coffee-bg img {
+  width: 168.47%;
+  height: 105.63%;
+  object-fit: cover;
+  position: absolute;
+  left: -30.13%;
+  top: -0.03%;
+}
+
+.coffee-seal {
+  position: absolute;
+  left: 848px;
+  top: 366px;
+  width: 232px;
+  height: 233px;
+}
+
+.coffee-seal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coffee-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 75px;
+  font-family: 'Young Serif', serif;
+  font-size: 96px;
+  line-height: 87px;
+  text-align: center;
+  color: #ffebda;
+  text-transform: capitalize;
+  width: 897px;
+}
+
+.coffee-description {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 256px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  text-align: center;
+  color: #ffebda;
+  width: 1128px;
+  max-width: calc(100% - 48px);
+  line-height: normal;
+}
+
+/* Footer específico da home */
+.home-footer {
+  top: 1799px;
+}
+
+/* Header específico da home */
+.home-header .header-menu a {
+  color: #ffebda;
+}
+
+.home-header .btn-contact {
+  background: #ffca59;
+}
+
+.home-header .btn-contact span {
+  color: #116061;
+}
