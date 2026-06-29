@@ -33,15 +33,56 @@ app.get("/api/produtos/:id", (req, res) => {
     
 })
 
+app.get("/api/produtos", (req, res) => {
+    res.status(200).json(produtos);
+})
+
+app.delete("/api/produtos/:id", (req, res) => {
+    const id = req.params.id;
+
+    const indice = produtos.findIndex( p => p.id == id);
+
+    if(indice == -1){
+        res.status(404).json({message: "produto não encontrado"})
+    }
+
+    else{
+        produtos.splice(indice, 1);
+        res.status(200).json(produtos);
+    }
+    
+})
+
+app.post("/api/produtos", (req, res) => {
+    const novoProduto = req.body;
+    const novoId = produtos[produtos.length - 1].id + 1;
+    
+    novoProduto.id = novoId;
+
+    produtos.push(novoProduto);
+
+    res.status(201).json(novoProduto);
+});
+
+app.put("/api/produto/:id", (req, res) => {
+
+    const id = req.params.id;
+    const produto = produtos.find(p = p.id == id);
+
+    if( produto == undefined){
+        res.status(404).json({message:"Produto não encontrado"})
+    }else{
+        Object.assign(produto.id , req.body );
+        res.status(200).json(produto);
+    }
+    
+})
+
 app.listen(porta, () => {
     console.log(`Servidor rodando na porta ${porta}`);
 })
 
 
-
-app.get("/api/produtos", (req, res) => {
-    res.status(200).json(produtos);
-})
 
 
 
