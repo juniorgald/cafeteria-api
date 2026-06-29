@@ -94,123 +94,8 @@
         </div>
 
         <!-- Grid de produtos -->
-        <section class="menu-cards">
-            <!-- Linha 1 -->
-            <div class="card-row">
-                <div class="menu-card">
-                    <div class="card-image">
-                        <img src="images/10eaa00b1b9efa172ff0baed6a04e0bdbf6cf204.png" alt="Expresso Tradicional">
-                    </div>
-                    <div class="card-content">
-                        <h3>Expresso Tradicional</h3>
-                        <p class="description">Extração perfeita de grãos selecionados, com crema espessa e notas de caramelo.</p>
-                        <div class="divider"></div>
-                        <p class="price">R$ 7,00</p>
-                    </div>
-                </div>
-                
-                <div class="menu-card">
-                    <div class="card-image">
-                        <img src="images/2a0818d76b515ea968f450b5dc0e2685075d526f.png" alt="Cappuccino Cremoso">
-                    </div>
-                    <div class="card-content">
-                        <h3> Cappuccino Cremoso</h3>
-                        <p class="description">Dose de expresso, leite vaporizado e um toque aveludado de cacau em pó.</p>
-                        <div class="divider"></div>
-                        <p class="price">R$ 12,00</p>
-                    </div>
-                </div>
-                
-                <div class="menu-card">
-                    <div class="card-image">
-                        <img src="images/ea29219df9b4fdd909c7834e2c9cb11e2f3ac9f5.png" alt="Café Coado (V60)">
-                    </div>
-                    <div class="card-content">
-                        <h3>Café Coado (V60)</h3>
-                        <p class="description">Método que ressalta as notas florais e frutadas do grão. Bebida limpa e suave.</p>
-                        <div class="divider"></div>
-                        <p class="price">R$ 14,00</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Linha 2 -->
-            <div class="card-row">
-                <div class="menu-card">
-                    <div class="card-image">
-                        <img src="images/8361359334aefd32c6f0c244da43f8f0be79f531.png" alt="Iced Latte">
-                    </div>
-                    <div class="card-content">
-                        <h3>Iced Latte (Gelado)</h3>
-                        <p class="description">Expresso duplo com leite frio e cubos de gelo. Refrescante e intenso.</p>
-                        <div class="divider"></div>
-                        <p class="price">R$ 16,00</p>
-                    </div>
-                </div>
-                
-                <div class="menu-card">
-                    <div class="card-image">
-                        <img src="images/7091ec116ebda8bd9a1559f59e6ed96e7783733c.png" alt="Croissant">
-                    </div>
-                    <div class="card-content">
-                        <h3>Croissant Queijo do Reino</h3>
-                        <p class="description">Massa folhada francesa e amanteigada, recheada com o tradicional queijo do reino.</p>
-                        <div class="divider"></div>
-                        <p class="price">R$ 18,00</p>
-                    </div>
-                </div>
-                
-                <div class="menu-card">
-                    <div class="card-image">
-                        <img src="images/d97dce6f15b1ecc084d0829228591851a5f59ce8.png" alt="Quiche">
-                    </div>
-                    <div class="card-content">
-                        <h3>Quiche de Alho Poró</h3>
-                        <p class="description">Torta salgada de massa leve, com recheio super cremoso e tostada no ponto certo.</p>
-                        <div class="divider"></div>
-                        <p class="price">R$ 15,00</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Linha 3 -->
-            <div class="card-row">
-                <div class="menu-card">
-                    <div class="card-image">
-                        <img src="images/6d55471379fa7e77de58cc9199158578accac2a0.png" alt="Pão de Queijo">
-                    </div>
-                    <div class="card-content">
-                        <h3>Pão de Queijo Recheado</h3>
-                        <p class="description">Nosso pão de queijo quentinho com generosa camada de requeijão artesanal.</p>
-                        <div class="divider"></div>
-                        <p class="price">R$ 10,00</p>
-                    </div>
-                </div>
-                
-                <div class="menu-card">
-                    <div class="card-image">
-                        <img src="images/2a0818d76b515ea968f450b5dc0e2685075d526f.png" alt="Empada">
-                    </div>
-                    <div class="card-content">
-                        <h3>Empada Sertaneja</h3>
-                        <p class="description">Massa que derrete na boca com recheio suculento de charque e catupiry.</p>
-                        <div class="divider"></div>
-                        <p class="price">R$ 12,00</p>
-                    </div>
-                </div>
-                
-                <div class="menu-card">
-                    <div class="card-image">
-                        <img src="images/acdb015e57503c1f2f5aec0406288aea81180c18.png" alt="Sobremesa">
-                    </div>
-                    <div class="card-content">
-                        <h3>Sobremesa Dois Mundos</h3>
-                        <p class="description">A estrela do festival! União de texturas cremosas e crocantes com chocolate</p>
-                        <div class="divider"></div>
-                        <p class="price">R$ 22,00</p>
-                    </div>
-                </div>
-            </div>
+        <section id="lista-produtos"  class="menu-cards">
+            
         </section>
 
         <!-- Footer -->
@@ -279,5 +164,40 @@
             </div>
         </footer>
     </div>
+
+    <script>
+
+        async function carregarProdutos() {
+            const resposta = await fetch("/api/produtos");
+            const produtos = await resposta.json();
+            const corpo = document.getElementById("lista-produtos");
+
+            produtos.forEach(function(produto) {
+                corpo.innerHTML += `
+                <div class="menu-card">
+                    <div class="card-image">
+                        <img src="${produto.imagem}">
+                    </div>
+                    <div class="card-content">
+                        <h3>${produto.nome}</h3>
+                        <p class="description">${produto.descricao}</p>
+                        <div class="divider"></div>
+                        <p class="price">R$ ${produto.preco.toFixed(2)}</p>
+                    </div>
+                </div>
+                `;
+            });
+
+            const footer = document.querySelector(".cardapio-footer");
+            const footerTop = corpo.offsetTop + corpo.offsetHeight + 60;
+            footer.style.top = footerTop + "px";
+
+            const container = document.querySelector(".cardapio-container");
+            container.style.minHeight = (footerTop + 380) + "px";
+        }
+
+        carregarProdutos();
+
+    </script>
 </body>
 </html>
