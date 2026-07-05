@@ -1,8 +1,26 @@
 import express from "express";
 import conectar from "./database/db.js";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 const app = express();
 const porta = 3000;
+const CHAVE_SECRET = "cafeteria_secret";
+
+function verificarToken(req, res, next) {
+    const token = req.headers.authorization;
+    if (!token) {
+        return res.status(401).json({ message: "Token não fornecido" });
+    }
+    jwt.verify(token, CHAVE_SECRET, function (erro, dados) {
+        if (erro) {
+            res.status(401).json({ message: "Token inválido" });
+        } else {
+            req.usuario = dados;
+            next();
+        }
+    });
+}
 
 app.use(express.json());
 
@@ -29,7 +47,7 @@ conectar(function (db) {
     })
 
 
-    app.delete("/api/produtos/:id", (req, res) => {
+    app.delete("/api/produtos/:id", verificarToken, (req, res) => {
         const id = req.params.id;
 
         db.run("DELETE FROM produtos WHERE id = ?", [id], function (erro) {
@@ -44,7 +62,7 @@ conectar(function (db) {
 
     });
 
-    app.post("/api/produtos", (req, res) => {
+    app.post("/api/produtos", verificarToken, (req, res) => {
         const novoProduto = req.body;
         db.run("INSERT INTO produtos (nome, descricao, preco, imagem) VALUES (?,?,?,?)", [novoProduto.nome, novoProduto.descricao, novoProduto.preco, novoProduto.imagem], function (erro) {
             if (erro) {
@@ -56,7 +74,7 @@ conectar(function (db) {
 
     });
 
-    app.put("/api/produtos/:id", (req, res) => {
+    app.put("/api/produtos/:id", verificarToken, (req, res) => {
 
         const id = req.params.id;
         const { nome, descricao, preco, imagem } = req.body;
@@ -70,9 +88,28 @@ conectar(function (db) {
         });
     })
 
+
+    app.post("/api/login", (req, res) => {
+        const { nome, senha } = req.body;
+        db.get("SELECT * FROM usuarios WHERE nome = ?", [nome], function (erro, usuario) {
+            if (usuario == undefined) {
+                res.status(401).json({ message: "Usuário não encontrado" });
+            } else {
+                bcrypt.compare(senha, usuario.senha, function (erro, resultado) {
+                    if (resultado) {
+                        const token = jwt.sign({ id: usuario.id }, CHAVE_SECRET, { expiresIn: "1h" });
+                        res.status(200).json({ token });
+                    } else {
+                        res.status(401).json({ message: "Senha incorreta" });
+                    }
+                });
+            }
+        });
+    });
+
     app.listen(porta, () => {
         console.log(`Servidor rodando na porta ${porta}`);
-    })
+    });
 
 });
 
